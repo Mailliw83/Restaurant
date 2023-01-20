@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Android E-Restaurant</string>
+    <string name="entree_page_name">Entrées</string>
+    <string name="plats_page_name">Plats</string>
+    <string name="Desserts_page_name">Desserts</string>
+    <string name="home">Home</string>
+    <string name="entrees">Entrées</string>
+    <string name="plats">Plats</string>
+    <string name="desserts">Desserts</string>
+    <string name="message">Bienvenue chez DroidRestaurant !</string>
+    <string name="text_entrees">Veuillez choisir une entrée parmis cette sélection.</string>
+    <string name="text_desserts">Veuillez choisi un dessert parmis cette selection</string>
+    <string name="text_plats">Veuillez choisi un plat parmis cette selection</string>
+</resources>
