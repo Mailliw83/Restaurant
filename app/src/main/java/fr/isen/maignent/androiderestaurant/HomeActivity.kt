@@ -31,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("category", button.text)
             startActivity(intent)
-            Toast.makeText(this, "You selected ${button.text}", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "You selected ${button.text}", Toast.LENGTH_LONG).show()
         }
     }
 

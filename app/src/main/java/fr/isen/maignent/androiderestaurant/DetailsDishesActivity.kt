@@ -25,7 +25,6 @@ class DetailsDishesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_dishes)
 
-        //supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
 
         binding = ActivityDetailsDishesBinding.inflate(layoutInflater)

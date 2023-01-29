@@ -57,7 +57,7 @@ class MenuActivity : AppCompatActivity() {
                             }?.items.let {
                                 DishesAdapter(it) {
                                     val intent = Intent(this, DetailsDishesActivity::class.java)
-                                    Toast.makeText(this, "You selected ${it.name_fr}", Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(this, "You selected ${it.name_fr}", Toast.LENGTH_SHORT).show()
                                     intent.putExtra("item", it)
                                     startActivity(intent)
                                 } }
