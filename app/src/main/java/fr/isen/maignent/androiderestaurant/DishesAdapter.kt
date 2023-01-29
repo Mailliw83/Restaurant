@@ -13,11 +13,18 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import fr.isen.maignent.androiderestaurant.model.Category
+import fr.isen.maignent.androiderestaurant.model.Data
 import fr.isen.maignent.androiderestaurant.model.Plats
+import org.json.JSONException
+import org.json.JSONObject
 
-class DishesAdapter(private val menuTitles: Array<Plats>, val onClick: (String) -> Unit) :
+class DishesAdapter(private val menuTitles: Array<Plats>, val onClick: (Plats) -> Unit) :
     RecyclerView.Adapter<DishesAdapter.MenuViewHolder>() {
 
 
@@ -26,7 +33,6 @@ class DishesAdapter(private val menuTitles: Array<Plats>, val onClick: (String) 
         val viewMenu: TextView? = view.findViewById(R.id.menuTitle)
         val image:ImageView? = view.findViewById(R.id.images)
         val prices:TableLayout? = view.findViewById(R.id.prices)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
@@ -36,9 +42,6 @@ class DishesAdapter(private val menuTitles: Array<Plats>, val onClick: (String) 
 
 
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
-
-
-
         if(menuTitles[position].images[0].isNotEmpty()){
             Picasso.get().load(menuTitles[position].images[0]).resize(150, 150).centerCrop().into(holder.image)
         }
@@ -56,7 +59,7 @@ class DishesAdapter(private val menuTitles: Array<Plats>, val onClick: (String) 
             holder.prices?.addView(row)
         }
         holder.itemView.setOnClickListener {
-            onClick(menuTitles[position].name_fr)
+            onClick(menuTitles[position])
         }
     }
 

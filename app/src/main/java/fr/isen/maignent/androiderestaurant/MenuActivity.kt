@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.view.MenuItem
+import android.view.Window
 import android.widget.Adapter
 import android.widget.Button
 import android.widget.ProgressBar
@@ -30,6 +31,8 @@ import java.util.ArrayList
 class MenuActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         title = intent.getStringExtra("category").toString()
@@ -54,20 +57,10 @@ class MenuActivity : AppCompatActivity() {
                             }?.items.let {
                                 DishesAdapter(it) {
                                     val intent = Intent(this, DetailsDishesActivity::class.java)
-                                    Toast.makeText(this, "You selected $it", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "You selected ${it.name_fr}", Toast.LENGTH_SHORT).show()
                                     intent.putExtra("item", it)
                                     startActivity(intent)
                                 } }
-                        /*datas.data.forEach{ item ->
-                            if (item.name_fr == title){
-                                recyclerView.adapter = DishesAdapter(item.items) {
-                                    val intent = Intent(this, DetailsDishesActivity::class.java)
-                                    Toast.makeText(this, "You selected $it", Toast.LENGTH_SHORT).show()
-                                    intent.putExtra("item", it)
-                                    startActivity(intent)
-                                }
-                            }
-                        }*/
                     } catch (e: JSONException) {
                         Toast.makeText(this, "Error parsing JSON", Toast.LENGTH_LONG).show()
                     }
