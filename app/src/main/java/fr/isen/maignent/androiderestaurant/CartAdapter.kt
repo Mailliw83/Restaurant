@@ -14,9 +14,9 @@ import fr.isen.maignent.androiderestaurant.model.Items
 
 class CartAdapter(private val cart: Array<Items>, private val onClick: (Items) -> Unit) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val name: TextView? = view.findViewById(R.id.name)
-        private val price: TextView? = view.findViewById(R.id.price)
-        private val images: ImageView? = view.findViewById(R.id.image)
+        private val name: TextView? = view.findViewById(R.id.nameInCart)
+        private val price: TextView? = view.findViewById(R.id.priceInCart)
+        private val images: ImageView? = view.findViewById(R.id.imageInCart)
         private val delete: Button? = view.findViewById(R.id.buttonSupp)
 
         fun bind(item: Items, onClick: (Items) -> Unit) {
@@ -24,7 +24,7 @@ class CartAdapter(private val cart: Array<Items>, private val onClick: (Items) -
             setPrice(item)
             setImage(item)
             delete?.setOnClickListener {
-                /*if (item.quantity > 1){
+                /*if (item.quantity > 1){ //Ca regle le probleme des 2 plats identiques qui se supprime quand on en supprime un mais ca crée un autre bug ou si un plats à une quantité > 1 et qu'on le supprime, ca supprime tout les autres plats identiques...
                     item.quantity -= 1
                 }
                 else{

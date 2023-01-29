@@ -16,9 +16,7 @@ class CartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
-
         supportActionBar?.hide()
-
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbar.title.text = "Cart"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android E-Restaurant</string>
+    <string name="entree_page_name">Starters</string>
+    <string name="plats_page_name">Dishes</string>
+    <string name="Desserts_page_name">Desserts</string>
+    <string name="entrees">Starters</string>
+    <string name="plats">Dishes</string>
+    <string name="desserts">Desserts</string>
+    <string name="message">Welcome to DroidRestaurant!</string>
+    <string name="text_entrees">Choose a starter whitin this selection.</string>
+    <string name="text_desserts">Choose a dessert whitin this selection.</string>
+    <string name="text_plats">Choose a dish whitin this selection.</string>
+</resources>
