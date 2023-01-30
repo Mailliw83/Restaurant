@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import fr.isen.maignent.androiderestaurant.databinding.ActivityCartBinding
 import fr.isen.maignent.androiderestaurant.model.Items
@@ -32,6 +33,7 @@ class CartActivity : AppCompatActivity() {
                     file.delete()
                     refreshCart()
                     updateLayout()
+                    Snackbar.make(binding.root, "Commande passée", Snackbar.LENGTH_SHORT).show()
                 }
             }
             refreshCart()
