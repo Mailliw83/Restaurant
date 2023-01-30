@@ -8,7 +8,7 @@
     <string name="plats">Dishes</string>
     <string name="desserts">Desserts</string>
     <string name="message">Welcome to DroidRestaurant!</string>
-    <string name="text_entrees">Choose a starter whitin this selection.</string>
-    <string name="text_desserts">Choose a dessert whitin this selection.</string>
-    <string name="text_plats">Choose a dish whitin this selection.</string>
+    <string name="text_entrees">Choose a starter within this selection.</string>
+    <string name="text_desserts">Choose a dessert within this selection.</string>
+    <string name="text_plats">Choose a dish within this selection.</string>
 </resources>

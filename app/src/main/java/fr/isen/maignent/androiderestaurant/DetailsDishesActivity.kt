@@ -31,7 +31,7 @@ class DetailsDishesActivity : AppCompatActivity() {
         setContentView(binding.root)
         plat = intent.getSerializableExtra("item") as Plats
 
-        binding.toolbar.title.text = plat.name_fr
+        binding.toolbar.title.text = "Détails du plat"
         binding.toolbar.cart.setOnClickListener {
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
@@ -77,6 +77,9 @@ class DetailsDishesActivity : AppCompatActivity() {
                 binding.toolbar.pastille.visibility = ImageView.GONE
             }
             binding.toolbar.pastille.text = cart.size.toString()
+        }
+        else{
+            binding.toolbar.pastille.visibility = ImageView.GONE
         }
     }
 

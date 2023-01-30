@@ -1,5 +1,6 @@
 package fr.isen.maignent.androiderestaurant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -20,6 +21,22 @@ class CartActivity : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbar.title.text = "Cart"
+        binding.checkoutButton.text = "Checkout"
+
+        binding.checkoutButton.setOnClickListener {
+            val file = File(this.filesDir, "cart.json")
+            if (file.exists()){
+                val json = file.readText()
+                val cart = Gson().fromJson(json, Array<Items>::class.java)
+                if (cart.isNotEmpty()){
+                    file.delete()
+                    refreshCart()
+                    updateLayout()
+                }
+            }
+            refreshCart()
+            updateLayout()
+        }
 
         refreshCart()
         updateLayout()
@@ -37,6 +54,9 @@ class CartActivity : AppCompatActivity() {
                 updateLayout()
             }
         }
+        else{
+            binding.cartRecyclerView.adapter = null
+        }
     }
     private fun refreshCart(){
         val file = File(filesDir, "cart.json")
@@ -51,9 +71,14 @@ class CartActivity : AppCompatActivity() {
             }
             binding.toolbar.pastille.text = cart.size.toString()
         }
+        else
+            binding.toolbar.pastille.visibility = ImageView.GONE
     }
     override fun onResume() {
         super.onResume()
         refreshCart()
     }
+
+
+
 }
